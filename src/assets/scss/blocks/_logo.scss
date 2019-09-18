@@ -1,0 +1,13 @@
+.logo {
+    width: 134px;
+
+    svg {
+        path {
+            transition: 0.3s fill;
+        }
+    
+        &:hover path {
+            fill: $primaryColor;
+        }
+    }
+}

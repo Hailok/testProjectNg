@@ -1,0 +1,92 @@
+.current-user {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+    &__text-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-right: 11px;
+    }
+
+    &__name {
+        @include font($secondaryFont, 400, 0.875rem);
+    }
+
+    &__email {
+        @include font($secondaryFont, 400, 0.75rem, 1, #8d8c8c);
+        margin-top: 5px;
+    }
+
+    &__avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+
+    &__sign-out-button {
+        cursor: pointer;
+        padding-top: 4px;
+
+        svg {
+            path {
+                transition: 0.3s fill;
+            }
+
+            &:hover path {
+                fill: $secondaryColorHover;
+            }
+        }
+
+        &[disabled] {
+            cursor: not-allowed;
+            svg {
+                path {
+                    fill: $secondaryColor;
+                    fill-opacity: 0.5;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $tabletPoint) {
+    .current-user {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px 25px 25px 25px;
+
+        &__avatar {
+            width: 67px;
+            height: 67px;
+            order: -1;
+        }
+
+        &__text-wrap {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 16px;
+        }
+        
+        &__name {
+            font-size: 1.25rem;
+        }
+    
+        &__email {
+            font-size: 0.8125rem;
+            margin-top: 8px;
+        }
+
+        &__sign-out-button {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: $mobilePoint) {
+    .current-user {
+        padding-left: 15px;
+    }
+}

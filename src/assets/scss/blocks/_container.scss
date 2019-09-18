@@ -1,0 +1,25 @@
+.container {
+    margin: 0 auto;
+    max-width: 1170px;
+    min-width: 320px;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+@media (max-width: $desktopPoint) {
+    .container {
+        padding: 0 45px;
+    }
+}
+
+@media (max-width: $tabletPoint) {
+    .container {
+        padding: 0 23px;
+    }
+}
+
+@media (max-width: $mobilePoint) {
+    .container {
+        padding: 0 15px;
+    }
+}

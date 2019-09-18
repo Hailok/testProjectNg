@@ -1,0 +1,46 @@
+.user-card {
+    display: flex;
+    padding-right: 5px;
+
+    .paragraph-3 {
+        color: #4c4b4b;
+    }
+
+    &__avatar {
+        flex-shrink: 0;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+    }
+
+    &__info {
+        margin-left: 9px;
+    }
+
+    &__name {
+        margin-top: 25px;
+    }
+
+    &__position {
+        margin-top: 5px
+    }
+}
+
+@media (max-width: $tabletPoint) {
+    .user-card {
+        flex-direction: column;
+        align-items: center;
+
+        &__info {
+            text-align: center;
+        }
+
+        &__name {
+            margin-top: 10px;
+        }
+
+        &__position {
+            line-height: 15px;
+        }
+    }
+}

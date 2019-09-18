@@ -1,0 +1,59 @@
+
+
+.heading-1 {
+    @include font($primaryFont, 600, 3.125rem, 60px);
+}
+
+.heading-2 {
+    @include font($primaryFont, 600, 2.625rem, 51px);
+}
+
+.heading-3 {
+    @include font($primaryFont, 600, 1.625rem, 31px);
+}
+
+.heading-4 {
+    @include font($primaryFont, 600, 1.375rem, 26px);
+}
+
+.heading-5 {
+    @include font($primaryFont, 400, 1.125rem, 21px);
+}
+
+.paragraph-1 {
+    @include font($secondaryFont, 400, 1.125rem, 26px);
+}
+
+.paragraph-2 {
+    @include font($secondaryFont, 400, 1rem, 22px);
+}
+
+.paragraph-3 {
+    @include font($secondaryFont, 400, 0.875rem, 20px);
+}
+
+//tablet
+@media (max-width: $tabletPoint) {
+    .heading-1 {
+        @include font($primaryFont, 600, 2.625rem, 51px);
+    }
+}
+
+//mobile
+@media (max-width: $mobilePoint) {
+    .heading-1 {
+        @include font($primaryFont, 600, 1.875rem, 36px);
+    }
+
+    .heading-2 {
+        @include font($primaryFont, 600, 1.625rem, 31px);
+    }
+
+    .heading-3 {
+        @include font($primaryFont, 600, 1.375rem, 26px);
+    }
+
+    .heading-5 {
+        @include font($secondaryFont, 400, 1rem, 20px);
+    }
+}

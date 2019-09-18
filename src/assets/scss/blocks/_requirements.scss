@@ -1,0 +1,115 @@
+.requirements {
+    background: url(../assets/imgs/third-block-bg/third-block-bg-2560x692.jpg) center center / cover no-repeat;
+    padding: 135px 0 102px 0;
+
+    .heading-2 {
+        color: #ffffff;
+    }
+
+    .paragraph-2 {
+        color: #fefefe;
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__title {
+        text-align: center;
+    }
+
+    &__inline-wrap {
+        display: flex;
+        margin-top: 40px;
+        padding: 0 60px 0 4px;
+    }
+
+    &__man-laptop {
+        margin-left: 100px;
+    }
+
+    &__man-laptop_tablet {
+        display: none;
+    }
+}
+
+@media (max-width: $desktopPoint) {
+    .requirements {
+        background: url(../assets/imgs/third-block-bg/third-block-bg-1024x755.jpg) center center / cover no-repeat;
+        padding: 134px 0;
+
+        &__inline-wrap {
+            padding: 0 0 0 4px;
+        }
+
+        &__man-laptop {
+            margin-top: 15px;
+            margin-left: 55px;
+        }
+    }
+}
+
+@media (max-width: $tabletPoint) {
+    .requirements {
+        background: url(../assets/imgs/third-block-bg/third-block-bg-768x878.jpg) center center / cover no-repeat;
+        padding: 115px 0 120px 0;
+
+        &__title {
+            padding: 0 130px;
+        }
+
+        &__man-laptop {
+            display: none;
+            margin-top: 0;
+            margin-left: 45px;
+        }
+
+        &__man-laptop_tablet {
+            display: block;
+        }
+
+        &__inline-wrap {
+            display: flex;
+            margin-top: 35px;
+        }
+    }
+}
+
+@media (max-width: $mobilePoint) {
+    .requirements {
+        background: url(../assets/imgs/third-block-bg/third-block-bg-320x1031.jpg) center center / cover no-repeat;
+        padding: 65px 0 65px 0;
+
+        &__inline-wrap {
+            flex-direction: column-reverse;
+            align-items: center;
+            margin-top: 22px;
+        }
+
+        &__title {
+            padding: 0;
+        }
+
+        &__man-laptop {
+            display: block;
+            margin-left: 0;
+
+            svg {
+                width: 257px;
+                height: 220px;
+            }
+        }
+
+        &__man-laptop_tablet {
+            display: none;
+        }
+
+        &__text {
+            margin-top: 20px;
+            text-align: center;
+        }
+    }
+}
+

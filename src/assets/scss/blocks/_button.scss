@@ -1,0 +1,10 @@
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 290px;
+    height: 40px;
+    border-radius: 4px;
+    @include font($secondaryFont, 700, 1.25rem);
+    text-decoration: none;
+}
