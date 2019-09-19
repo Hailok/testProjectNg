@@ -12,7 +12,7 @@
     }
 
     &__aside-wrap-background {
-        flex-grow: 1;
+      display: none;
     }
 
     &__menu-toggle {
@@ -23,7 +23,15 @@
 @media (max-width: $tabletPoint) {
     .nav {
         justify-content: space-between;
-        
+
+        &__aside-wrap-background {
+          position: fixed;
+          left: 0;
+          top: 0;
+          background-color: #160c0d;
+          display: block;
+        }
+
         &__aside-wrap {
             background: $backgroundColor;
             display: flex;
@@ -31,12 +39,11 @@
             justify-content: flex-start;
             align-items: flex-start;
             position: fixed;
-            width: 260px;
-            height: 100vh;
             left: 0;
             top: 0;
+            width: 260px;
+            height: 100vh;
             box-sizing: border-box;
-            transform: translate(-100%);
         }
 
         &__menu {

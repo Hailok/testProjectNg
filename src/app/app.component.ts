@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {WindowSizeCheckerService} from './services/window-size-checker.service';
 
 @Component({
   selector: 'app-root',

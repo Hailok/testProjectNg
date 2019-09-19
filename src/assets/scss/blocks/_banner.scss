@@ -1,5 +1,5 @@
 .banner {
-    background: url(../assets/imgs/banner-bg/banner-bg-2560x676.jpg) center center / cover no-repeat;
+    background: url(assets/imgs/banner-bg/banner-bg-2560x676.jpg) center center / cover no-repeat;
     padding: 130px 0 141px 0;
 
     .heading-1 {
@@ -29,7 +29,7 @@
 
 @media (max-width: $desktopPoint) {
     .banner {
-        background: url(../assets/imgs/banner-bg/banner-bg-1204x723.jpg) center center / cover no-repeat;
+        background: url(assets/imgs/banner-bg/banner-bg-1204x723.jpg) center center / cover no-repeat;
         padding: 133px 0 158px 0;
 
         &__content-wrap {
@@ -48,7 +48,7 @@
 
 @media (max-width: $tabletPoint) {
     .banner {
-        background: url(../assets/imgs/banner-bg/banner-bg-768x622.jpg) center center / cover no-repeat;
+        background: url(assets/imgs/banner-bg/banner-bg-768x622.jpg) center center / cover no-repeat;
         padding: 110px 0 118px 0;
 
         &__content-wrap {
@@ -65,7 +65,7 @@
 
 @media (max-width: $mobilePoint) {
     .banner {
-        background: url(../assets/imgs/banner-bg/banner-bg-320x393.jpg) center center / cover no-repeat;
+        background: url(assets/imgs/banner-bg/banner-bg-320x393.jpg) center center / cover no-repeat;
         padding: 65px 0 70px 0;
 
         &__content-wrap {
