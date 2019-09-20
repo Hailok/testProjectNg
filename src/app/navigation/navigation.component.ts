@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 import {WindowSizeCheckerService} from '../services/window-size-checker.service';
+import {EasingMethodsService} from '../services/easing-methods.service';
 
 @Component({
   selector: 'app-navigation',
@@ -55,11 +56,14 @@ export class NavigationComponent implements OnInit {
   menuCurrentState: string;
   windowCurrentWidth: number;
 
-  constructor(private windowSizeCheckerService: WindowSizeCheckerService) { }
+  constructor(private windowSizeCheckerService: WindowSizeCheckerService,
+              private easingMethodsService: EasingMethodsService) { }
 
   ngOnInit() {
     this.windowSizeCheckerService.DOMLoadedChecker().subscribe((bodyWidth) => {
       this.menuCurrentState = (bodyWidth > this.windowSizeCheckerService.tabletPoint) ? 'visibly' : 'hidden';
+      console.log(bodyWidth > this.windowSizeCheckerService.tabletPoint);
+      console.log(this.menuCurrentState);
       this.windowCurrentWidth = bodyWidth;
     });
     this.windowSizeCheckerService.windowWidthChecker().subscribe((windowWidth) => {
@@ -67,7 +71,8 @@ export class NavigationComponent implements OnInit {
       this.windowCurrentWidth = windowWidth;
     });
   }
-  changeMenuState(fromMenu: boolean = false) {
+
+  public changeMenuState(fromMenu: boolean = false) {
     if (fromMenu) {
       if (this.windowCurrentWidth <= this.windowSizeCheckerService.tabletPoint) {
         this.menuCurrentState = 'hidden';

@@ -1,0 +1,8 @@
+@import "../../assets/scss/core/variables";
+
+.header {
+  background: $backgroundColor;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
