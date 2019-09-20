@@ -1,7 +1,10 @@
 .current-user {
     display: flex;
     align-items: center;
-    text-decoration: none;
+
+    a {
+      text-decoration: none;
+    }
 
     &__text-wrap {
         display: flex;
@@ -69,11 +72,11 @@
             align-items: flex-start;
             margin-top: 16px;
         }
-        
+
         &__name {
             font-size: 1.25rem;
         }
-    
+
         &__email {
             font-size: 0.8125rem;
             margin-top: 8px;

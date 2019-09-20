@@ -1,6 +1,7 @@
 .user-card {
     display: flex;
     padding-right: 5px;
+    max-width: 352px;
 
     .paragraph-3 {
         color: #4c4b4b;
@@ -14,25 +15,48 @@
     }
 
     &__info {
-        margin-left: 9px;
+        padding-left: 9px;
+        overflow: hidden;
     }
 
     &__name {
-        margin-top: 25px;
+      margin-top: 25px;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     &__position {
-        margin-top: 5px
+      margin-top: 5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
+
+    &__email {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &__phone {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+}
+
+@media (max-width: $desktopPoint) {
+  .user-card {
+    max-width: 284px;
+  }
 }
 
 @media (max-width: $tabletPoint) {
     .user-card {
         flex-direction: column;
         align-items: center;
+        max-width: 217px;
 
         &__info {
             text-align: center;
+          width: 100%;
         }
 
         &__name {

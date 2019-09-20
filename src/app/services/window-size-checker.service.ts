@@ -1,6 +1,6 @@
-import {HostListener, Injectable} from '@angular/core';
-import {fromEvent, Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import { HostListener, Injectable } from '@angular/core';
+import { fromEvent, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

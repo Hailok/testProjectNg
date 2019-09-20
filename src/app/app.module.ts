@@ -6,15 +6,19 @@ import { NavigationComponent } from './navigation/navigation.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
+import { UsersComponent } from './users/users.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     HeaderComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     NgxPageScrollModule
   ],

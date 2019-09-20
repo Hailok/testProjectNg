@@ -5,9 +5,7 @@
       <div class="banner__content-wrap">
         <h1 class="heading-1">Test assignment for Frontend Developer position</h1>
         <p class="banner__text">
-          We kindly remind you that your test assignment should
-          be submitted as a link to github/bitbucket repository.
-          Please be patient, we consider and respond to every application that meets minimum requirements. We look forward to your submission. Good luck!
+          {{ currentBannerText }}
         </p>
         <a href="#" class="button banner__button">Sign Up</a>
       </div>
@@ -667,69 +665,7 @@
       </div>
     </div>
   </section>
-  <section id="users" class="users">
-    <div class="container">
-      <h2 class="heading-2">Our cheerful users</h2>
-      <span class="users__subtitle paragraph-1">Attention! Sorting users by registration date</span>
-      <div class="users__users-list">
-        <div class="user-card">
-          <div style="background: url(../assets/imgs/user-noah-2x.jpg) center center / cover no-repeat" class="user-card__avatar"></div>
-          <div class="user-card__info">
-            <h4 class="user-card__name heading-4">Noah</h4>
-            <div class="user-card__position paragraph-3">Leading specialist of the Control Department</div>
-            <div class="user-card__email paragraph-3">noah.controldepartment@gmail.com</div>
-            <div class="user-card__phone paragraph-3">+38 (050) 678 03 24</div>
-          </div>
-        </div>
-        <div class="user-card">
-          <div style="background: url(../assets/imgs/user-adolph-2x.png) center center / cover no-repeat" class="user-card__avatar"></div>
-          <div class="user-card__info">
-            <h4 class="user-card__name heading-4">Adolph Blaine Charles David Earl</h4>
-            <div class="user-card__position paragraph-3">The contextual advertising specialist</div>
-            <div class="user-card__email paragraph-3">adolph.blainecharles-davidearl@example.com</div>
-            <div class="user-card__phone paragraph-3">+38 (095) 556 08 45</div>
-          </div>
-        </div>
-        <div class="user-card">
-          <div style="background: url(../assets/imgs/user-liam-2x.jpg) center center / cover no-repeat" class="user-card__avatar"></div>
-          <div class="user-card__info">
-            <h4 class="user-card__name heading-4">Liamgrievescasey Smith Wiam</h4>
-            <div class="user-card__position paragraph-3">Lead designer</div>
-            <div class="user-card__email paragraph-3">liamgrievescasey@example.com</div>
-            <div class="user-card__phone paragraph-3">+38 (050) 273 93 32</div>
-          </div>
-        </div>
-        <div class="user-card">
-          <div style="background: url(../assets/imgs/user-elizabeth-2x.jpg) center center / cover no-repeat" class="user-card__avatar"></div>
-          <div class="user-card__info">
-            <h4 class="user-card__name heading-4">Elizabeth</h4>
-            <div class="user-card__position paragraph-3">Frontend developer</div>
-            <div class="user-card__email paragraph-3">elisabet.frontend@gmail.com</div>
-            <div class="user-card__phone paragraph-3">+38 (095) 924 66 37</div>
-          </div>
-        </div>
-        <div class="user-card">
-          <div style="background: url(../assets/imgs/user-alexander-2x.jpg) center center / cover no-repeat" class="user-card__avatar"></div>
-          <div class="user-card__info">
-            <h4 class="user-card__name heading-4">Alexander</h4>
-            <div class="user-card__position paragraph-3">Backend developer</div>
-            <div class="user-card__email paragraph-3">alexander.backend@gmail.com</div>
-            <div class="user-card__phone paragraph-3">+38 (050) 789 24 09</div>
-          </div>
-        </div>
-        <div class="user-card">
-          <div style="background: url(../assets/imgs/user-mason-2x.jpg) center center / cover no-repeat" class="user-card__avatar"></div>
-          <div class="user-card__info">
-            <h4 class="user-card__name heading-4">Mason</h4>
-            <div class="user-card__position paragraph-3">QA</div>
-            <div class="user-card__email paragraph-3">mason.qa@gmail.com</div>
-            <div class="user-card__phone paragraph-3">+38 (095) 283 27 00</div>
-          </div>
-        </div>
-      </div>
-      <div class="button users__button">Show more</div>
-    </div>
-  </section>
+  <app-users></app-users>
   <section id="sign-up" class="sign-up">
     <div class="container sign-up__container">
       <h2 class="heading-2">Register to get a work</h2>

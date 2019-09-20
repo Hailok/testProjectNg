@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 import {WindowSizeCheckerService} from '../services/window-size-checker.service';
 import {EasingMethodsService} from '../services/easing-methods.service';
+import {UsersService} from '../services/users.service';
 
 @Component({
   selector: 'app-navigation',
@@ -52,34 +53,36 @@ export class NavigationComponent implements OnInit {
     {linkName: 'Requirements', linkTo: '#requirements'},
     {linkName: 'Users', linkTo: '#users'},
     {linkName: 'Sign Up', linkTo: '#sign-up'}
-  ]
-  menuCurrentState: string;
-  windowCurrentWidth: number;
+  ];
+  currentMenuState = 'hidden';
+  currentWindowWidth: number;
+
+  currentUser: {name: string, email: string, photo: string};
 
   constructor(private windowSizeCheckerService: WindowSizeCheckerService,
-              private easingMethodsService: EasingMethodsService) { }
+              private usersService: UsersService,
+              public easingMethodsService: EasingMethodsService) { }
 
   ngOnInit() {
     this.windowSizeCheckerService.DOMLoadedChecker().subscribe((bodyWidth) => {
-      this.menuCurrentState = (bodyWidth > this.windowSizeCheckerService.tabletPoint) ? 'visibly' : 'hidden';
-      console.log(bodyWidth > this.windowSizeCheckerService.tabletPoint);
-      console.log(this.menuCurrentState);
-      this.windowCurrentWidth = bodyWidth;
+      this.currentMenuState = (bodyWidth > this.windowSizeCheckerService.tabletPoint) ? 'visibly' : 'hidden';
+      this.currentWindowWidth = bodyWidth;
     });
     this.windowSizeCheckerService.windowWidthChecker().subscribe((windowWidth) => {
-      this.menuCurrentState = (windowWidth > this.windowSizeCheckerService.tabletPoint) ? 'visibly' : 'hidden';
-      this.windowCurrentWidth = windowWidth;
+      this.currentMenuState = (windowWidth > this.windowSizeCheckerService.tabletPoint) ? 'visibly' : 'hidden';
+      this.currentWindowWidth = windowWidth;
     });
+    this.usersService.getUserById(1).subscribe((currentUser) => {this.currentUser = currentUser; console.log(this.currentUser)});
   }
 
   public changeMenuState(fromMenu: boolean = false) {
     if (fromMenu) {
-      if (this.windowCurrentWidth <= this.windowSizeCheckerService.tabletPoint) {
-        this.menuCurrentState = 'hidden';
+      if (this.currentWindowWidth <= this.windowSizeCheckerService.tabletPoint) {
+        this.currentMenuState = 'hidden';
         return;
       } else { return; }
     }
 
-    this.menuCurrentState = this.menuCurrentState === 'hidden' ? 'visibly' : 'hidden';
+    this.currentMenuState = this.currentMenuState === 'hidden' ? 'visibly' : 'hidden';
   }
 }

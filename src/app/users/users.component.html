@@ -1,0 +1,18 @@
+<section id="users" class="users">
+  <div class="container">
+    <h2 class="heading-2">Our cheerful users</h2>
+    <span class="users__subtitle paragraph-1">Attention! Sorting users by registration date</span>
+    <div class="users__users-list">
+      <div *ngFor="let user of usersService.users" class="user-card">
+        <div [ngStyle]="{ background: 'url(' + user.photo + ') center center / cover no-repeat' }" class="user-card__avatar"></div>
+        <div class="user-card__info">
+          <h4 class="user-card__name heading-4" title="{{ user.name }}">{{ user.name }}</h4>
+          <div class="user-card__position paragraph-3" title="{{ user.position }}">{{ user.position }}</div>
+          <div class="user-card__email paragraph-3" title="{{ user.email }}">{{ user.email }}</div>
+          <div class="user-card__phone paragraph-3" title="{{ user.phone }}">{{ user.phone }}</div>
+        </div>
+      </div>
+    </div>
+    <button (click)="updateUsers()" [disabled]="usersService.isLoading || usersService.isGotAllList" class="button users__button">Show more</button>
+  </div>
+</section>
