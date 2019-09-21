@@ -29,8 +29,8 @@
     color: $primaryColor;
     margin-top: 55px;
     box-sizing: border-box;
-    cursor: pointer;
     transition: 0.3s background-color;
+    cursor: pointer;
 
     &:hover {
       background-color: rgba($primaryColorAlternativeHover, 0.2);

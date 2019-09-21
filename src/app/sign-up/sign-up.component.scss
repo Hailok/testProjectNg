@@ -1,0 +1,140 @@
+@import "../../assets/scss/core/variables";
+@import "../../assets/scss/core/mixins";
+
+.sign-up {
+  background: $backgroundColor;
+  padding: 75px 0 151px 0;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__subtitle {
+    margin-top: 11px;
+    text-align: center;
+  }
+
+  &__form {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 25px;
+    grid-row-gap: 40px;
+    width: 100%;
+  }
+
+  &__name {
+    grid-column: 1 / span 2;
+  }
+
+  &__email {
+    grid-column: 3 / span 2;
+  }
+
+  &__phone {
+    grid-column: 5 / span 2;
+  }
+
+  &__selectPosition {
+    grid-column: 1 / span 3;
+  }
+
+  &__photo {
+    grid-column: 4 / span 3;
+    display: flex;
+    position: relative;
+  }
+
+  &__photo-way {
+    flex: 1 1 0;
+
+    .mdc-notched-outline__trailing {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+      border-right: 0;
+    }
+
+    .mdc-text-field__input {
+      border: 2px solid red;
+    }
+  }
+
+  &__photo-button {
+    cursor: pointer;
+    height: 56px;
+    width: 130px;
+    box-sizing: border-box;
+    color: $primaryColor;
+    border: 2px solid $primaryColor;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    transition: 0.3s background-color;
+
+    &:hover {
+      background-color: rgba($primaryColorAlternativeHover, 0.2);
+    }
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  .text-field-helper-line {
+    position: absolute;
+    bottom: -18px;
+    left: 20px;
+    @include font($secondaryFont, 400, 0.75rem, 1, #8d8c8c);
+  }
+
+  &__button {
+    background: transparent;
+    outline: none;
+    border: 2px solid $primaryColor;
+    color: $primaryColor;
+    margin-top: 60px;
+    box-sizing: border-box;
+    transition: 0.3s background-color;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba($primaryColorAlternativeHover, 0.2);
+    }
+
+    &[disabled] {
+      cursor: not-allowed;
+      color: #8d8c8c;
+      background-color: #d7d7d7;
+      border: none;
+    }
+  }
+}
+
+@media (max-width: $desktopPoint) {
+  .sign-up {
+    padding: 75px 0 135px 0;
+  }
+}
+
+@media (max-width: $tabletPoint) {
+  .sign-up {
+    padding: 53px 0 108px 0;
+
+    &__subtitle {
+      padding: 0 160px;
+    }
+  }
+}
+
+@media (max-width: $mobilePoint) {
+  .sign-up {
+    padding: 30px 0 310px 0;
+
+    &__subtitle {
+      margin-top: 10px;
+      padding: 0;
+      line-height: 22px;
+    }
+  }
+}

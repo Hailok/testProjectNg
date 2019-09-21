@@ -8,6 +8,8 @@ import { HeaderComponent } from './header/header.component';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import { UsersComponent } from './users/users.component';
 import {HttpClientModule} from '@angular/common/http';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,9 +17,11 @@ import {HttpClientModule} from '@angular/common/http';
     NavigationComponent,
     HeaderComponent,
     UsersComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     NgxPageScrollModule

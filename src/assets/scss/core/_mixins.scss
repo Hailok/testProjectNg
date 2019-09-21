@@ -1,7 +1,7 @@
-@mixin font($fontFamily, $fontWeight, $fontSize, $lineheight: 1, $color: #000) {
+@mixin font($fontFamily, $fontWeight, $fontSize, $lineHeight: 1, $color: #000) {
     font-family: $fontFamily, sans-serif;
     font-weight: $fontWeight;
     font-size: $fontSize;
-    line-height: $lineheight;
+    line-height: $lineHeight;
     color: $color;
 }

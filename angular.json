@@ -28,9 +28,12 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/material-components-web/dist/material-components-web.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/material-components-web/dist/material-components-web.min.js"
+            ]
           },
           "configurations": {
             "production": {

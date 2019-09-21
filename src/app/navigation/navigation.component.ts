@@ -72,7 +72,7 @@ export class NavigationComponent implements OnInit {
       this.currentMenuState = (windowWidth > this.windowSizeCheckerService.tabletPoint) ? 'visibly' : 'hidden';
       this.currentWindowWidth = windowWidth;
     });
-    this.usersService.getUserById(1).subscribe((currentUser) => {this.currentUser = currentUser; console.log(this.currentUser)});
+    this.usersService.getUserById(1).subscribe((currentUser) => { this.currentUser = currentUser; });
   }
 
   public changeMenuState(fromMenu: boolean = false) {

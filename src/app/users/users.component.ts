@@ -8,7 +8,7 @@ import { UsersService } from '../services/users.service';
 })
 export class UsersComponent implements OnInit {
 
-  constructor(private usersService: UsersService) { }
+  constructor(public usersService: UsersService) { }
 
   ngOnInit() {
     this.updateUsers();

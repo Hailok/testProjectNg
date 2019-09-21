@@ -15,11 +15,18 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
+  getPositions() {
+    return this.http.get('https://frontend-test-assignment-api.abz.agency/api/v1/positions')
+      .pipe(
+        map((response: {positions: []}) => {
+          return response.positions;
+        })
+      );
+  }
   getUserById(id: number) {
     return this.http.get('https://frontend-test-assignment-api.abz.agency/api/v1/users/' + id)
       .pipe(
         map((response: {user}) => {
-          console.log(response.user);
           return response.user;
         })
       );

@@ -1,0 +1,76 @@
+<section id="sign-up" class="sign-up">
+  <div class="container sign-up__container">
+    <h2 class="heading-2">Register to get a work</h2>
+    <p class="sign-up__subtitle paragraph-1">Attention! After successful registration and alert, update the list of users in the block from the top</p>
+    <form [formGroup]="form" class="sign-up__form">
+      <div class="sign-up__name mdc-text-field mdc-text-field--outlined">
+        <input formControlName="name" class="mdc-text-field__input" id="sign-up__input-name" placeholder="Your name">
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="sign-up__input-name" class="mdc-floating-label">Name</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
+        </div>
+      </div>
+
+      <div class="sign-up__email mdc-text-field mdc-text-field--outlined">
+        <input formControlName="email" class="mdc-text-field__input" id="sign-up__input-email" placeholder="Your email">
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="sign-up__input-email" class="mdc-floating-label">Email</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
+        </div>
+      </div>
+
+      <div class="sign-up__phone mdc-text-field mdc-text-field--outlined">
+        <input formControlName="phone" class="mdc-text-field__input" id="sign-up__input-phone" placeholder="+38 (___)  ___ __ __">
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="sign-up__input-phone" class="mdc-floating-label">Phone</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
+        </div>
+      </div>
+
+      <div class="sign-up__selectPosition mdc-select mdc-select--outlined">
+        <input formControlName="position" type="hidden" name="enhanced-select">
+        <i class="mdc-select__dropdown-icon"></i>
+        <div class="mdc-select__selected-text" class="mdc-select__selected-text" role="button" aria-haspopup="listbox" aria-labelledby="demo-label"></div>
+        <div class="mdc-select__menu mdc-menu mdc-menu-surface">
+          <ul class="mdc-list">
+            <li *ngFor="let position of positions" class="mdc-list-item" [attr.data-value]="position.id" role="option">{{ position.name }}</li>
+          </ul>
+        </div>
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label class="mdc-floating-label">Select your position</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
+        </div>
+      </div>
+
+      <div class="sign-up__photo">
+        <div class="sign-up__photo-way mdc-text-field mdc-text-field--outlined">
+          <input class="mdc-text-field__input" id="sign-up__input-photo-way" aria-controls="sign-up__photo-helper-text" aria-describedby="sign-up__photo-helper-text" readonly>
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch">
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
+        </div>
+        <div class="text-field-helper-line">
+          File format jpg  up to 5 MB, the minimum size of 70x70px
+        </div>
+        <label for="sign-up__input-photo" class="button sign-up__photo-button">Upload</label>
+        <input formControlName="photo" id="sign-up__input-photo" type="file">
+      </div>
+    </form>
+    <div (click)="signUp()" class="button sign-up__button">Sign Up</div>
+  </div>
+</section>
