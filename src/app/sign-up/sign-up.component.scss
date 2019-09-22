@@ -136,5 +136,28 @@
       padding: 0;
       line-height: 22px;
     }
+
+    &__form {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-column-gap: 25px;
+      grid-row-gap: 40px;
+      width: 100%;
+    }
+
+    &__name,
+    &__email,
+    &__phone,
+    &__selectPosition,
+    &__photo {
+      grid-column: auto;
+    }
+
+    &__photo {
+      grid-column: auto;
+      display: flex;
+      position: relative;
+    }
   }
 }

@@ -46,7 +46,7 @@ import {UsersService} from '../services/users.service';
     ])
   ]
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent {
   menuItems: {linkName, linkTo}[] = [
     {linkName: 'About me', linkTo: '#about-me'},
     {linkName: 'Relationships', linkTo: '#relationships'},
@@ -54,24 +54,24 @@ export class NavigationComponent implements OnInit {
     {linkName: 'Users', linkTo: '#users'},
     {linkName: 'Sign Up', linkTo: '#sign-up'}
   ];
-  currentMenuState = 'hidden';
   currentWindowWidth: number;
+  currentMenuState;
 
   currentUser: {name: string, email: string, photo: string};
 
   constructor(private windowSizeCheckerService: WindowSizeCheckerService,
               private usersService: UsersService,
-              public easingMethodsService: EasingMethodsService) { }
-
-  ngOnInit() {
+              public easingMethodsService: EasingMethodsService) {
     this.windowSizeCheckerService.DOMLoadedChecker().subscribe((bodyWidth) => {
       this.currentMenuState = (bodyWidth > this.windowSizeCheckerService.tabletPoint) ? 'visibly' : 'hidden';
       this.currentWindowWidth = bodyWidth;
     });
+
     this.windowSizeCheckerService.windowWidthChecker().subscribe((windowWidth) => {
       this.currentMenuState = (windowWidth > this.windowSizeCheckerService.tabletPoint) ? 'visibly' : 'hidden';
       this.currentWindowWidth = windowWidth;
     });
+
     this.usersService.getUserById(1).subscribe((currentUser) => { this.currentUser = currentUser; });
   }
 

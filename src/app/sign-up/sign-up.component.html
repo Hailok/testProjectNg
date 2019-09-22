@@ -37,7 +37,8 @@
       </div>
 
       <div class="sign-up__selectPosition mdc-select mdc-select--outlined">
-        <input formControlName="position" type="hidden" name="enhanced-select">
+        <input tempFormControl="position" type="hidden" name="enhanced-select">
+        <input formControlName="position" type="hidden">
         <i class="mdc-select__dropdown-icon"></i>
         <div class="mdc-select__selected-text" class="mdc-select__selected-text" role="button" aria-haspopup="listbox" aria-labelledby="demo-label"></div>
         <div class="mdc-select__menu mdc-menu mdc-menu-surface">
@@ -68,9 +69,9 @@
           File format jpg  up to 5 MB, the minimum size of 70x70px
         </div>
         <label for="sign-up__input-photo" class="button sign-up__photo-button">Upload</label>
-        <input formControlName="photo" id="sign-up__input-photo" type="file">
+        <input formControlName="photo" id="sign-up__input-photo" type="file" (change)="changePhoto($event)">
       </div>
     </form>
-    <div (click)="signUp()" class="button sign-up__button">Sign Up</div>
+    <button (click)="signUp()" class="button sign-up__button" [disabled]="form.invalid || !validatorsService.isPhotoValid">Sign Up</button>
   </div>
 </section>
