@@ -31,7 +31,7 @@ export class SignUpComponent implements OnInit {
 
     this.form = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(60)]),
-      email: new FormControl('', [this.validatorsService.email]),
+      email: new FormControl('', [Validators.minLength(2), Validators.maxLength(100), this.validatorsService.email]),
       phone: new FormControl('', [this.validatorsService.phone]),
       position: new FormControl('', [Validators.required]),
       photo: new FormControl('', [])
@@ -67,7 +67,6 @@ export class SignUpComponent implements OnInit {
       formData.append('email', formValues.email);
       formData.append('phone', formValues.phone);
       formData.append('photo', fileField.files[0]);
-      console.log(token, '5');
       this.usersService.postUser(formData, token);
     });
   }

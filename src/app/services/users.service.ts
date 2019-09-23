@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -11,21 +11,23 @@ export class UsersService {
 
   users = [];
   usersPerPage = 6;
-  startPage = `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=${ this.usersPerPage }`
+  startPage = `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=${ this.usersPerPage }`;
   nextPage = this.startPage;
 
   constructor(private http: HttpClient) { }
 
   postUser(formData, token) {
-    return this.http.post('https://frontend-test-assignment-api.abz.agency/api/v1/users', {
-      body: formData,
-      headers: {
-        Token: token, // get token with GET api/v1/token method
-      }
-    }).subscribe(res => {
+    this.http.post('https://frontend-test-assignment-api.abz.agency/api/v1/users', formData, {
+      headers: new HttpHeaders({
+        Token: token,
+      })
+    }).subscribe((response) => {
       this.nextPage = this.startPage;
+      this.users = [];
       this.loadNextPage();
-      console.log(res);
+    }, (response) => {
+      const fails = response.error.fails;
+      alert(JSON.stringify(fails));
     });
   }
 
@@ -45,6 +47,7 @@ export class UsersService {
         })
       );
   }
+
   getUserById(id: number) {
     return this.http.get('https://frontend-test-assignment-api.abz.agency/api/v1/users/' + id)
       .pipe(
@@ -60,7 +63,7 @@ export class UsersService {
     this.http.get(this.nextPage)
       .subscribe((response: {links: {next_url: string, prev_url: string}, users: []}) => {
         this.users = (this.users.concat(response.users)).sort((a, b) => {
-          return a.registration_timestamp - b.registration_timestamp;
+          return -( a.registration_timestamp - b.registration_timestamp );
         });
 
         this.isLoading = false;

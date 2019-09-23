@@ -7,7 +7,7 @@
         <p class="banner__text">
           {{ currentBannerText }}
         </p>
-        <a href="#" class="button banner__button">Sign Up</a>
+        <a pageScroll [pageScrollEasing]="easingMethodsService.easingMethod" [pageScrollDuration]="300" [pageScrollOffset]="100" href="#sign-up" class="button banner__button">Sign Up</a>
       </div>
     </div>
   </section>
@@ -309,7 +309,7 @@
             <br><br>
             Last week, Google Search and Ads teams announced two new speed initiatives to help improve user-experience on the web.
           </p>
-          <a href="#" class="about-me__sign-up-button">Sign Up</a>
+          <a pageScroll [pageScrollEasing]="easingMethodsService.easingMethod" [pageScrollDuration]="300" [pageScrollOffset]="100" href="#sign-up" class="about-me__sign-up-button">Sign Up</a>
         </div>
       </div>
 

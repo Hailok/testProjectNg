@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
-import {WindowSizeCheckerService} from '../services/window-size-checker.service';
-import {EasingMethodsService} from '../services/easing-methods.service';
-import {UsersService} from '../services/users.service';
+import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
+import { WindowSizeCheckerService } from '../services/window-size-checker.service';
+import { EasingMethodsService } from '../services/easing-methods.service';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-navigation',
