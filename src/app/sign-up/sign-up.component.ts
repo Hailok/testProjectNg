@@ -5,6 +5,7 @@ import { UsersService } from '../services/users.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ValidatorsService } from '../services/validators.service';
 import {combineAll} from 'rxjs/operators';
+import {WindowSizeCheckerService} from '../services/window-size-checker.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,13 +15,22 @@ import {combineAll} from 'rxjs/operators';
 export class SignUpComponent implements OnInit {
 
   constructor(private usersService: UsersService,
-              public validatorsService: ValidatorsService) { }
+              public validatorsService: ValidatorsService,
+              private windowSizeCheckerService: WindowSizeCheckerService) { }
   materialDesignElements = [];
   positions = [];
   form: FormGroup;
   photoWayInput;
+  isMobileSize = false;
 
   ngOnInit() {
+    this.windowSizeCheckerService.DOMLoadedChecker().subscribe((bodyWidth) => {
+      this.isMobileSize = (bodyWidth > this.windowSizeCheckerService.mobilePoint) ? false : true;
+    });
+    this.windowSizeCheckerService.windowWidthChecker().subscribe((windowWidth) => {
+      this.isMobileSize = (windowWidth > this.windowSizeCheckerService.mobilePoint) ? false : true;
+    });
+
     this.usersService.getPositions().subscribe((positions: []) => { this.positions = positions; });
     document.querySelectorAll('.mdc-text-field').forEach((textField) => {
       this.materialDesignElements.push(new MDCTextField(textField));

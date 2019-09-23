@@ -10,9 +10,20 @@ export class UsersService {
   isGotAllList = false;
 
   users = [];
-  usersPerPage = 6;
-  startPage = `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=${ this.usersPerPage }`;
-  nextPage = this.startPage;
+  startPageLink = {
+    startPage: `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=`,
+    usersPerPage: 6,
+
+    get getLink() {
+      return this.startPage + this.usersPerPage;
+    },
+
+    set setUsersPerPage(value) {
+      this.usersPerPage = value;
+    }
+  };
+
+  nextPage = this.startPageLink.getLink;
 
   constructor(private http: HttpClient) { }
 
@@ -22,7 +33,7 @@ export class UsersService {
         Token: token,
       })
     }).subscribe((response) => {
-      this.nextPage = this.startPage;
+      this.nextPage = this.startPageLink.getLink;
       this.users = [];
       this.loadNextPage();
     }, (response) => {
@@ -59,7 +70,7 @@ export class UsersService {
 
   loadNextPage() {
     this.isLoading = true;
-
+    console.log(this.nextPage);
     this.http.get(this.nextPage)
       .subscribe((response: {links: {next_url: string, prev_url: string}, users: []}) => {
         this.users = (this.users.concat(response.users)).sort((a, b) => {
