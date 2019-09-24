@@ -70,7 +70,6 @@ export class UsersService {
 
   loadNextPage() {
     this.isLoading = true;
-    console.log(this.nextPage);
     this.http.get(this.nextPage)
       .subscribe((response: {links: {next_url: string, prev_url: string}, users: []}) => {
         this.users = (this.users.concat(response.users)).sort((a, b) => {
